@@ -1,0 +1,21 @@
+<div layout="column">
+<md-toolbar layout="row" layout-align="space-between center" class="md-whiteframe-8dp main-toolbar">
+    <div class="md-toolbar-tools">
+        <md-button ng-if="rL.$state.includes('user') || rL.$state.includes('agent')" class="navigation-button" ng-click="rL.toggleSidenav()" hide-gt-sm="" aria-label="Toggle Side Menu">
+                <md-icon class="material-icons navigation-icon">menu</md-icon>
+        </md-button>
+        <span>
+            <a ui-sref="root.layout.home.joblist({firmId: rL.firmInfo.firmId})" aria-label="firm-logo">
+                <img ng-if="rL.firmInfo.logo.url" data-ng-src="{{rL.firmInfo.logo.url}}" class="firm-logo" alt="">
+                <span ng-if="!rL.firmInfo.logo.url" class="brand-title" ng-bind="rL.firmInfo.title"></span>
+            </a>
+        </span>
+        <span flex="">
+        <data-top-menu menu-collection="rL.menuCollection" go-state="rL.goToState(state, params)" layout="row" layout-align="end center">
+        </data-top-menu>
+    </span></div>    
+</md-toolbar>
+<span ui-view="wizard-topnav" class="second-top-nav" ng-if="rL.hasSubToolBar()"></span>
+</div>
+<!-- <ui-breadcrumbs displayname-property="data.displayName" abstract-proxy-property="data.proxy" template-url="vendors/uiBreadcrumbs/uiBreadcrumbs.tpl.html"></ui-breadcrumbs-->
+
